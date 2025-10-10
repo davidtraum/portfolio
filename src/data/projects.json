@@ -1,0 +1,50 @@
+[
+  {
+    "id": "trekspots",
+    "title": "TrekSpots",
+    "description": "Zelt-Camping Community für Wanderer und Bikepacker.",
+    "screenshot": "/screenshots/trekspots.png",
+    "tags": ["Vue.js", "TypeScript", "MongoDB", "Node.js", "AI", "OpenStreetMap", "Mobile App", "Capacitor"],
+    "period": "2025 · App",
+    "highlight": true,
+    "links": [
+      { "label": "Web-App", "url": "https://trekspots.net", "icon": "external" },
+      { "label": "IOS", "url": "https://get.trekspots.net", "icon": "apple" },
+      { "label": "Android", "url": "https://get.trekspots.net", "icon": "android" }
+    ]
+  },
+  {
+    "id": "stadtlandfluss",
+    "title": "StadtLandFluss.cool",
+    "description": "Der Spieleklassiker als Onlinespiel mit bis zu 100.000 Nutzern im Monat.",
+    "screenshot": "/screenshots/stadtlandfluss.png",
+    "tags": ["Vue.js", "Node.js", "Websockets"],
+    "period": "2020 · Spiel",
+    "links": [
+      { "label": "Web-App", "url": "https://stadtlandfluss.cool" },
+      { "label": "Android", "url": "https://stadtlandfluss.cool" }
+    ]
+  },
+  {
+    "id": "klimakasse",
+    "title": "Klimakasse",
+    "description": "Interaktiver CO2-Rechner für Veranstaltungen.",
+    "screenshot": "/screenshots/klimakasse.webp",
+    "tags": ["IoT", "Arduino", "3D-Druck", "C++", "Nextion", "Elektrotechnik"],
+    "period": "2022 · IoT",
+    "links": [
+      { "label": "Heise Online", "url": "https://www.heise.de/ratgeber/Interaktive-Klimakasse-mit-ESP8266-bauen-5019009.html", "icon": "external" }
+    ]
+  },
+  {
+    "id": "klimakasse",
+    "title": "Klimakasse",
+    "description": "Interaktiver CO2-Rechner für Veranstaltungen.",
+    "screenshot": "/screenshots/klimakasse.webp",
+    "tags": ["IoT", "Arduino", "3D-Druck", "C++", "Nextion", "Elektrotechnik"],
+    "period": "2022 · IoT",
+    "links": [
+      { "label": "Heise Online", "url": "https://www.heise.de/ratgeber/Interaktive-Klimakasse-mit-ESP8266-bauen-5019009.html", "icon": "external" }
+    ]
+  }
+]
