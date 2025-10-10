@@ -2,10 +2,10 @@
   <div class="page">
     <header class="hero">
       <div class="hero__content">
-        <span class="hero__eyebrow">Portfolio · David Traum</span>
+        <span class="hero__eyebrow">Portfolio - David Traum</span>
         <h1>Software-Projekte mit Fokus auf Klarheit, Wirkung und Flow.</h1>
         <p>
-          Hi, ich bin David, Full-Stack Entwickler aus Andernach. Ich brenne für die Umsetzung interessanter Full-Stack Softwareprojekte, am liebsten mit Web-Fokus. Hier finden Sie eine Auswahl meiner Projekte, welche ich vollständig von Anfang bis Ende umgesetzt habe.
+          Hi, ich bin David, Full-Stack-Entwickler aus Andernach. Ich brenne für moderne Web- und Software-Projekte von der Idee bis zum Deployment.
         </p>
 
         <div class="hero__actions">
@@ -17,6 +17,11 @@
           </button>
         </div>
       </div>
+
+      <figure class="hero__portrait">
+        <img :src="profileImage" alt="Portrait von David Traum" />
+        <figcaption class="sr-only">David Traum</figcaption>
+      </figure>
 
       <div class="hero__stats" role="presentation">
         <div class="hero__stat">
@@ -61,19 +66,19 @@
       </ProjectGallery>
     </section>
 
-    <footer class="page__footer">
-      <div>
-        <h2>Setup anpassen</h2>
+    <footer class="page__footer contact-card">
+      <div class="contact-card__content">
+        <h2>Kontakt aufnehmen</h2>
         <p>
-          Ergänze deine Projekte in <code>src/data/projects.json</code> und lege die passenden Screenshots im
-          Ordner <code>public/screenshots</code> ab. Beim nächsten Build werden alle Informationen gebündelt.
+          Bei Interesse an einer Zusammenarbeit freue ich mich ueber eine Nachricht. Gerne sende ich weitere Referenzen
+          oder projektspezifische Einblicke zu.
         </p>
       </div>
-      <ul class="footer__list">
-        <li><strong>npm run dev</strong> — lokale Entwicklungsumgebung</li>
-        <li><strong>npm run build</strong> — optimierter, statischer Export</li>
-        <li><strong>npm run preview</strong> — finalen Build prüfen</li>
-      </ul>
+      <div class="contact-card__details">
+        <strong>David Traum</strong>
+        <a class="contact-card__mail" href="mailto:kontakt@davidtraum.de">david@traum.me</a>
+        <span>Andernach | Remote europaweit</span>
+      </div>
     </footer>
   </div>
 </template>
@@ -83,6 +88,8 @@ import { computed, ref } from 'vue'
 import ProjectGallery from './components/ProjectGallery.vue'
 import type { Project } from './types/project'
 import rawProjects from './data/projects.json'
+
+const profileImage = '/img/me.jpg'
 
 const projects = (rawProjects as Project[]).map((project, index) => ({
   ...project,

@@ -4,7 +4,7 @@
     "title": "TrekSpots",
     "description": "Zelt-Camping Community für Wanderer und Bikepacker.",
     "screenshot": "/screenshots/trekspots.png",
-    "tags": ["Vue.js", "TypeScript", "MongoDB", "Node.js", "AI", "OpenStreetMap", "Mobile App", "Capacitor"],
+    "tags": ["Vue.js", "TypeScript", "MongoDB", "Node.js", "AI", "OpenStreetMap", "Mobile App", "Capacitor", "Quasar"],
     "period": "2025 · App",
     "highlight": true,
     "links": [
@@ -18,7 +18,7 @@
     "title": "StadtLandFluss.cool",
     "description": "Der Spieleklassiker als Onlinespiel mit bis zu 100.000 Nutzern im Monat.",
     "screenshot": "/screenshots/stadtlandfluss.png",
-    "tags": ["Vue.js", "Node.js", "Websockets"],
+    "tags": ["Vue.js", "Node.js", "Websockets", "Capacitor", "Bootstrap"],
     "period": "2020 · Spiel",
     "links": [
       { "label": "Web-App", "url": "https://stadtlandfluss.cool" },
@@ -45,6 +45,52 @@
     "period": "2022 · IoT",
     "links": [
       { "label": "Heise Online", "url": "https://www.heise.de/ratgeber/Interaktive-Klimakasse-mit-ESP8266-bauen-5019009.html", "icon": "external" }
+    ]
+  },
+  {
+    "id": "joytrike",
+    "title": "Elektromobil",
+    "description": "DIY-Elektrofahrzeug aus Holz mit vielen Elektro-Features.",
+    "screenshot": "/screenshots/joytrike.webp",
+    "tags": ["IoT", "Arduino", "C++", "Nextion", "Elektrotechnik"],
+    "period": "2019 · IoT",
+    "links": [
+      { "label": "Heise Online", "url": "https://www.heise.de/ratgeber/Elektromobil-mit-Arduino-Steuerung-und-Solarzelle-4454053.html", "icon": "external" },
+      { "label": "Arduino Blog", "url": "https://blog.arduino.cc/2019/07/02/this-electric-soapbox-car-can-reach-a-top-speed-of-35-km-h/", "icon": "external" },
+      { "label": "Kliemannsland YouTube", "url": "https://www.youtube.com/watch?v=ElzpBlibBlU"}
+    ]
+  },
+  {
+    "id": "packtrek",
+    "title": "PackTrek.io",
+    "description": "Planungsanwendung für Rucksackwanderungen.",
+    "screenshot": "/screenshots/packtrek.png",
+    "tags": ["Vue.js", "Vuetify", "Node.js", "JavaScript"],
+    "period": "2021 · Web-App",
+    "links": [
+      { "label": "Web-App", "url": "https://packtrek.io", "icon": "external" }
+    ]
+  },
+  {
+    "id": "appointa",
+    "title": "Appointa",
+    "description": "Online-Abstimmungen für Gruppentreffen mit verschiedenen Modulen.",
+    "screenshot": "/screenshots/appointa.png",
+    "tags": ["Vue.js", "Ionic", "Node.js", "JavaScript", "Websockets"],
+    "period": "2018 · Web-App",
+    "links": [
+      { "label": "Web-App", "url": "https://appointa.net", "icon": "external" }
+    ]
+  },
+  {
+    "id": "plantpacers",
+    "title": "Plantpacers Blog",
+    "description": "Blog über Outdoor-Touren.",
+    "screenshot": "/screenshots/plantpacers.png",
+    "tags": ["Ghost", "CSS", "JavaScript"],
+    "period": "2023 · Website",
+    "links": [
+      { "label": "Website", "url": "https://plantpacers.de", "icon": "external" }
     ]
   }
 ]
