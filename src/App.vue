@@ -2,47 +2,61 @@
   <div class="page">
     <header class="hero">
       <div class="hero__content">
-        <span class="hero__eyebrow">Portfolio - David Traum</span>
-        <h1>Software-Projekte mit Fokus auf Klarheit, Wirkung und Flow.</h1>
+        <div class="hero__header-row">
+          <span class="hero__eyebrow">{{ t('hero.eyebrow') }}</span>
+          <div class="language-switcher">
+            <button 
+              v-for="lang in availableLocales" 
+              :key="lang"
+              class="language-switcher__btn"
+              :class="{ 'language-switcher__btn--active': locale === lang }"
+              type="button"
+              @click="switchLanguage(lang)"
+            >
+              {{ lang.toUpperCase() }}
+            </button>
+          </div>
+        </div>
+        <h1>{{ t('hero.title') }}</h1>
         <p>
-          Hi, ich bin David, Full-Stack-Entwickler aus Andernach. Ich brenne für moderne Web- und Software-Projekte von der Idee bis zum Deployment.
+          {{ t('hero.description') }}
         </p>
 
         <div class="hero__actions">
           <button class="btn btn--primary" type="button" @click="scrollToProjects">
-            Projekte ansehen
+            {{ t('hero.viewProjects') }}
           </button>
           <button class="btn btn--ghost" type="button" @click="printPage">
-            PDF exportieren
+            {{ t('hero.exportPdf') }}
           </button>
         </div>
       </div>
 
       <figure class="hero__portrait">
-        <img :src="profileImage" alt="Portrait von David Traum" />
-        <figcaption class="sr-only">David Traum</figcaption>
+        <img :src="profileImage" :alt="t('hero.portrait')" />
+        <figcaption class="sr-only">{{ t('contact.name') }}</figcaption>
       </figure>
 
       <div class="hero__stats" role="presentation">
         <div class="hero__stat">
           <span class="hero__stat-number">{{ projects.length }}</span>
-          <span class="hero__stat-label">Projekte</span>
+          <span class="hero__stat-label">{{ t('hero.projectsCount') }}</span>
         </div>
         <div class="hero__stat">
           <span class="hero__stat-number">{{ uniqueTags.length }}</span>
-          <span class="hero__stat-label">Technologien</span>
+          <span class="hero__stat-label">{{ t('hero.technologiesCount') }}</span>
         </div>
       </div>
     </header>
 
-    <section class="filters" aria-label="Projekt-Filter">
+    <section class="filters" :aria-label="t('filters.label')">
       <button
         class="filter-chip"
         :class="{ 'filter-chip--active': !selectedTag }"
         type="button"
         @click="selectTag()"
       >
-        Alle
+        {{ t('filters.all') }}
       </button>
       <button
         v-for="tag in uniqueTags"
@@ -60,7 +74,7 @@
       <ProjectGallery :projects="filteredProjects">
         <template #actions>
           <span v-if="selectedTag" class="filters__status">
-            Filter aktiv: #{{ selectedTag }}
+            {{ t('filters.activeFilter', { tag: selectedTag }) }}
           </span>
         </template>
       </ProjectGallery>
@@ -68,49 +82,73 @@
 
     <footer class="page__footer contact-card">
       <div class="contact-card__content">
-        <h2>Kontakt aufnehmen</h2>
+        <h2>{{ t('contact.heading') }}</h2>
         <p>
-          Bei Interesse an einer Zusammenarbeit freue ich mich ueber eine Nachricht. Gerne sende ich weitere Referenzen
-          oder projektspezifische Einblicke zu.
+          {{ t('contact.description') }}
         </p>
       </div>
       <div class="contact-card__details">
-        <strong>David Traum</strong>
+        <strong>{{ t('contact.name') }}</strong>
         <a class="contact-card__mail" href="mailto:kontakt@davidtraum.de">david@traum.me</a>
-        <span>Andernach | Remote europaweit</span>
+        <span>{{ t('contact.location') }}</span>
       </div>
     </footer>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 import ProjectGallery from './components/ProjectGallery.vue'
 import type { Project } from './types/project'
 import rawProjects from './data/projects.json'
 
+const { t, locale, availableLocales, te } = useI18n()
+
 const profileImage = '/img/me.jpg'
 
-const projects = (rawProjects as Project[]).map((project, index) => ({
-  ...project,
-  highlight: project.highlight ?? index === 0
-}))
+// Helper function to check if a translation exists
+const hasTranslation = (key: string): boolean => {
+  return te(key)
+}
+
+const projects = computed(() => {
+  return (rawProjects as Project[]).map((project, index) => {
+    // Get the translated project data
+    const projectKey = `projects.${index}`
+    const hasTrans = hasTranslation(`${projectKey}.title`)
+    
+    return {
+      ...project,
+      title: hasTrans ? t(`${projectKey}.title`) : project.title,
+      description: hasTrans ? t(`${projectKey}.description`) : project.description,
+      period: hasTrans ? t(`${projectKey}.period`) : project.period,
+      links: project.links?.map((link, linkIndex) => ({
+        ...link,
+        label: hasTranslation(`${projectKey}.links.${linkIndex}.label`)
+          ? t(`${projectKey}.links.${linkIndex}.label`)
+          : link.label
+      })),
+      highlight: project.highlight ?? index === 0
+    }
+  })
+})
 
 const gallerySection = ref<HTMLElement | null>(null)
 const selectedTag = ref<string | undefined>()
 
 const uniqueTags = computed(() => {
   const tags = new Set<string>()
-  projects.forEach((project) => project.tags?.forEach((tag) => tags.add(tag)))
+  projects.value.forEach((project) => project.tags?.forEach((tag) => tags.add(tag)))
   return Array.from(tags).sort((a, b) => a.localeCompare(b))
 })
 
 const filteredProjects = computed(() => {
   if (!selectedTag.value) {
-    return projects
+    return projects.value
   }
 
-  return projects.filter((project) => project.tags?.includes(selectedTag.value as string))
+  return projects.value.filter((project) => project.tags?.includes(selectedTag.value as string))
 })
 
 const selectTag = (tag?: string) => {
@@ -124,4 +162,27 @@ const printPage = () => {
 const scrollToProjects = () => {
   gallerySection.value?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
+
+const switchLanguage = (lang: string) => {
+  locale.value = lang
+  localStorage.setItem('locale', lang)
+  document.documentElement.lang = lang
+  
+  // Update page title and description from translations
+  document.title = t('meta.title')
+  const metaDescription = document.querySelector('meta[name="description"]')
+  if (metaDescription) {
+    metaDescription.setAttribute('content', t('meta.description'))
+  }
+}
+
+// Update HTML lang attribute and meta tags on mount and locale change
+watch(locale, (newLocale) => {
+  document.documentElement.lang = newLocale
+  document.title = t('meta.title')
+  const metaDescription = document.querySelector('meta[name="description"]')
+  if (metaDescription) {
+    metaDescription.setAttribute('content', t('meta.description'))
+  }
+}, { immediate: true })
 </script>

@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "title": "Projektgalerie · Vue 3 Portfolio",
+    "description": "Moderne Projektgalerie auf Basis von Vue 3, ideal für Software-Portfolios und Produkt-Showcases."
+  },
+  "hero": {
+    "eyebrow": "Portfolio - David Traum",
+    "title": "Software-Projekte mit Fokus auf Klarheit, Wirkung und Flow.",
+    "description": "Hi, ich bin David, Full-Stack-Entwickler aus Andernach. Ich brenne für moderne Web- und Software-Projekte von der Idee bis zum Deployment.",
+    "viewProjects": "Projekte ansehen",
+    "exportPdf": "PDF exportieren",
+    "projectsCount": "Projekte",
+    "technologiesCount": "Technologien",
+    "portrait": "Portrait von David Traum"
+  },
+  "filters": {
+    "label": "Projekt-Filter",
+    "all": "Alle",
+    "activeFilter": "Filter aktiv: #{tag}"
+  },
+  "gallery": {
+    "heading": "Projekte",
+    "subtitle": "Eine kuratierte Auswahl aktueller Softwarearbeiten – modular, skalierbar und mit Fokus auf User Experience.",
+    "empty": "Kein Projekt gefunden. Prüfe die ausgewählten Filter oder ergänze deine projects.json.",
+    "screenshot": "Screenshot von {title}"
+  },
+  "contact": {
+    "heading": "Kontakt aufnehmen",
+    "description": "Bei Interesse an einer Zusammenarbeit freue ich mich über eine Nachricht. Gerne sende ich weitere Referenzen oder projektspezifische Einblicke zu.",
+    "name": "David Traum",
+    "location": "Andernach | Remote europaweit"
+  },
+  "projects": [
+    {
+      "id": "trekspots",
+      "title": "TrekSpots",
+      "description": "Zelt-Camping Community für Wanderer und Bikepacker.",
+      "period": "2025 · App",
+      "links": [
+        { "label": "Web-App" },
+        { "label": "iOS" },
+        { "label": "Android" }
+      ]
+    },
+    {
+      "id": "stadtlandfluss",
+      "title": "StadtLandFluss.cool",
+      "description": "Der Spieleklassiker als Onlinespiel mit bis zu 100.000 Nutzern im Monat.",
+      "period": "2020 · Spiel",
+      "links": [
+        { "label": "Web-App" },
+        { "label": "Android" }
+      ]
+    },
+    {
+      "id": "klimakasse",
+      "title": "Klimakasse",
+      "description": "Interaktiver CO2-Rechner für Veranstaltungen.",
+      "period": "2022 · IoT",
+      "links": [
+        { "label": "Heise Online" }
+      ]
+    },
+    {
+      "id": "joytrike",
+      "title": "Elektromobil",
+      "description": "DIY-Elektrofahrzeug aus Holz mit vielen Elektro-Features.",
+      "period": "2019 · IoT",
+      "links": [
+        { "label": "Heise Online" },
+        { "label": "Arduino Blog" },
+        { "label": "Kliemannsland YouTube" }
+      ]
+    },
+    {
+      "id": "packtrek",
+      "title": "PackTrek.io",
+      "description": "Planungsanwendung für Rucksackwanderungen.",
+      "period": "2021 · Web-App",
+      "links": [
+        { "label": "Web-App" }
+      ]
+    },
+    {
+      "id": "appointa",
+      "title": "Appointa",
+      "description": "Online-Abstimmungen für Gruppentreffen mit verschiedenen Modulen.",
+      "period": "2018 · Web-App",
+      "links": [
+        { "label": "Web-App" }
+      ]
+    },
+    {
+      "id": "plantpacers",
+      "title": "Plantpacers Blog",
+      "description": "Blog über Outdoor-Touren.",
+      "period": "2023 · Website",
+      "links": [
+        { "label": "Website" }
+      ]
+    }
+  ]
+}

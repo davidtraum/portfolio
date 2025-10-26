@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "title": "Project Gallery · Vue 3 Portfolio",
+    "description": "Modern project gallery based on Vue 3, ideal for software portfolios and product showcases."
+  },
+  "hero": {
+    "eyebrow": "Portfolio - David Traum",
+    "title": "Software projects focusing on clarity, impact, and flow.",
+    "description": "Hi, I'm David, a full-stack developer from Andernach. I'm passionate about modern web and software projects from concept to deployment.",
+    "viewProjects": "View projects",
+    "exportPdf": "Export PDF",
+    "projectsCount": "Projects",
+    "technologiesCount": "Technologies",
+    "portrait": "Portrait of David Traum"
+  },
+  "filters": {
+    "label": "Project filters",
+    "all": "All",
+    "activeFilter": "Filter active: #{tag}"
+  },
+  "gallery": {
+    "heading": "Projects",
+    "subtitle": "A curated selection of current software work – modular, scalable, and focused on user experience.",
+    "empty": "No project found. Check the selected filters or add to your projects.json.",
+    "screenshot": "Screenshot of {title}"
+  },
+  "contact": {
+    "heading": "Get in touch",
+    "description": "If you're interested in working together, I'd love to hear from you. I'm happy to send additional references or project-specific insights.",
+    "name": "David Traum",
+    "location": "Andernach | Remote across Europe"
+  },
+  "projects": [
+    {
+      "id": "trekspots",
+      "title": "TrekSpots",
+      "description": "Tent camping community for hikers and bikepackers.",
+      "period": "2025 · App",
+      "links": [
+        { "label": "Web App" },
+        { "label": "iOS" },
+        { "label": "Android" }
+      ]
+    },
+    {
+      "id": "stadtlandfluss",
+      "title": "StadtLandFluss.cool",
+      "description": "The classic game as an online multiplayer with up to 100,000 users per month.",
+      "period": "2020 · Game",
+      "links": [
+        { "label": "Web App" },
+        { "label": "Android" }
+      ]
+    },
+    {
+      "id": "klimakasse",
+      "title": "Klimakasse",
+      "description": "Interactive CO2 calculator for events.",
+      "period": "2022 · IoT",
+      "links": [
+        { "label": "Heise Online" }
+      ]
+    },
+    {
+      "id": "joytrike",
+      "title": "Electric Vehicle",
+      "description": "DIY electric vehicle made of wood with many electronic features.",
+      "period": "2019 · IoT",
+      "links": [
+        { "label": "Heise Online" },
+        { "label": "Arduino Blog" },
+        { "label": "Kliemannsland YouTube" }
+      ]
+    },
+    {
+      "id": "packtrek",
+      "title": "PackTrek.io",
+      "description": "Planning application for backpacking trips.",
+      "period": "2021 · Web App",
+      "links": [
+        { "label": "Web App" }
+      ]
+    },
+    {
+      "id": "appointa",
+      "title": "Appointa",
+      "description": "Online polls for group meetings with various modules.",
+      "period": "2018 · Web App",
+      "links": [
+        { "label": "Web App" }
+      ]
+    },
+    {
+      "id": "plantpacers",
+      "title": "Plantpacers Blog",
+      "description": "Blog about outdoor adventures.",
+      "period": "2023 · Website",
+      "links": [
+        { "label": "Website" }
+      ]
+    }
+  ]
+}
