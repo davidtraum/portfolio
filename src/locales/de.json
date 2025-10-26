@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "Projektgalerie · Vue 3 Portfolio",
+    "description": "Moderne Projektgalerie auf Basis von Vue 3, ideal für Software-Portfolios und Produkt-Showcases."
+  },
   "hero": {
     "eyebrow": "Portfolio - David Traum",
     "title": "Software-Projekte mit Fokus auf Klarheit, Wirkung und Flow.",
@@ -22,7 +26,7 @@
   },
   "contact": {
     "heading": "Kontakt aufnehmen",
-    "description": "Bei Interesse an einer Zusammenarbeit freue ich mich ueber eine Nachricht. Gerne sende ich weitere Referenzen oder projektspezifische Einblicke zu.",
+    "description": "Bei Interesse an einer Zusammenarbeit freue ich mich über eine Nachricht. Gerne sende ich weitere Referenzen oder projektspezifische Einblicke zu.",
     "name": "David Traum",
     "location": "Andernach | Remote europaweit"
   },
@@ -34,7 +38,7 @@
       "period": "2025 · App",
       "links": [
         { "label": "Web-App" },
-        { "label": "IOS" },
+        { "label": "iOS" },
         { "label": "Android" }
       ]
     },

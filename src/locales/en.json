@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "Project Gallery · Vue 3 Portfolio",
+    "description": "Modern project gallery based on Vue 3, ideal for software portfolios and product showcases."
+  },
   "hero": {
     "eyebrow": "Portfolio - David Traum",
     "title": "Software projects focusing on clarity, impact, and flow.",

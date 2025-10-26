@@ -103,24 +103,29 @@ import ProjectGallery from './components/ProjectGallery.vue'
 import type { Project } from './types/project'
 import rawProjects from './data/projects.json'
 
-const { t, locale, availableLocales } = useI18n()
+const { t, locale, availableLocales, te } = useI18n()
 
 const profileImage = '/img/me.jpg'
+
+// Helper function to check if a translation exists
+const hasTranslation = (key: string): boolean => {
+  return te(key)
+}
 
 const projects = computed(() => {
   return (rawProjects as Project[]).map((project, index) => {
     // Get the translated project data
     const projectKey = `projects.${index}`
-    const hasTranslation = t(`${projectKey}.title`) !== projectKey + '.title'
+    const hasTrans = hasTranslation(`${projectKey}.title`)
     
     return {
       ...project,
-      title: hasTranslation ? t(`${projectKey}.title`) : project.title,
-      description: hasTranslation ? t(`${projectKey}.description`) : project.description,
-      period: hasTranslation ? t(`${projectKey}.period`) : project.period,
+      title: hasTrans ? t(`${projectKey}.title`) : project.title,
+      description: hasTrans ? t(`${projectKey}.description`) : project.description,
+      period: hasTrans ? t(`${projectKey}.period`) : project.period,
       links: project.links?.map((link, linkIndex) => ({
         ...link,
-        label: hasTranslation && t(`${projectKey}.links.${linkIndex}.label`) !== `${projectKey}.links.${linkIndex}.label`
+        label: hasTranslation(`${projectKey}.links.${linkIndex}.label`)
           ? t(`${projectKey}.links.${linkIndex}.label`)
           : link.label
       })),
@@ -163,25 +168,21 @@ const switchLanguage = (lang: string) => {
   localStorage.setItem('locale', lang)
   document.documentElement.lang = lang
   
-  // Update page title and description
-  const titles = {
-    de: 'Projektgalerie · Vue 3 Portfolio',
-    en: 'Project Gallery · Vue 3 Portfolio'
-  }
-  const descriptions = {
-    de: 'Moderne Projektgalerie auf Basis von Vue 3, ideal für Software-Portfolios und Produkt-Showcases.',
-    en: 'Modern project gallery based on Vue 3, ideal for software portfolios and product showcases.'
-  }
-  
-  document.title = titles[lang as keyof typeof titles] || titles.en
+  // Update page title and description from translations
+  document.title = t('meta.title')
   const metaDescription = document.querySelector('meta[name="description"]')
   if (metaDescription) {
-    metaDescription.setAttribute('content', descriptions[lang as keyof typeof descriptions] || descriptions.en)
+    metaDescription.setAttribute('content', t('meta.description'))
   }
 }
 
-// Update HTML lang attribute on mount and locale change
+// Update HTML lang attribute and meta tags on mount and locale change
 watch(locale, (newLocale) => {
   document.documentElement.lang = newLocale
+  document.title = t('meta.title')
+  const metaDescription = document.querySelector('meta[name="description"]')
+  if (metaDescription) {
+    metaDescription.setAttribute('content', t('meta.description'))
+  }
 }, { immediate: true })
 </script>
