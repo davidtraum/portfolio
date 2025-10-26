@@ -2,9 +2,9 @@
   <section class="gallery" aria-labelledby="projects-heading">
     <header class="gallery__header">
       <div>
-        <h2 id="projects-heading">Projekte</h2>
+        <h2 id="projects-heading">{{ t('gallery.heading') }}</h2>
         <p class="gallery__subtitle">
-          Eine kuratierte Auswahl aktueller Softwarearbeiten – modular, skalierbar und mit Fokus auf User Experience.
+          {{ t('gallery.subtitle') }}
         </p>
       </div>
       <slot name="actions" />
@@ -25,14 +25,17 @@
     </TransitionGroup>
 
     <p v-else class="gallery__empty">
-      Kein Projekt gefunden. Prüfe die ausgewählten Filter oder ergänze deine <code>projects.json</code>.
+      {{ t('gallery.empty') }}
     </p>
   </section>
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import type { Project } from '../types/project'
 import ProjectCard from './ProjectCard.vue'
+
+const { t } = useI18n()
 
 defineProps<{
   projects: Project[]

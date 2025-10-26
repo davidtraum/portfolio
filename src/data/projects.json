@@ -41,7 +41,7 @@
     "title": "Elektromobil",
     "description": "DIY-Elektrofahrzeug aus Holz mit vielen Elektro-Features.",
     "screenshot": "/screenshots/joytrike.webp",
-    "tags": ["IoT", "Arduino", "C++", "Nextion", "Elektrotechnik"],
+    "tags": ["IoT", "Arduino", "3D-Druck", "C++", "Nextion", "Elektrotechnik"],
     "period": "2019 · IoT",
     "links": [
       { "label": "Heise Online", "url": "https://www.heise.de/ratgeber/Elektromobil-mit-Arduino-Steuerung-und-Solarzelle-4454053.html", "icon": "external" },

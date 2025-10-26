@@ -629,3 +629,51 @@ code {
     transition: none !important;
   }
 }
+
+/* Language Switcher */
+.hero__header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.language-switcher {
+  display: flex;
+  gap: 0.25rem;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 0.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.language-switcher__btn {
+  padding: 0.4rem 0.85rem;
+  background: transparent;
+  border: none;
+  color: rgba(226, 232, 240, 0.7);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: all 250ms ease;
+  letter-spacing: 0.02em;
+}
+
+.language-switcher__btn:hover {
+  background: rgba(99, 102, 241, 0.15);
+  color: rgba(226, 232, 240, 0.95);
+}
+
+.language-switcher__btn--active {
+  background: rgba(99, 102, 241, 0.35);
+  color: #e0f2fe;
+  font-weight: 600;
+}
+
+@media print {
+  .language-switcher {
+    display: none;
+  }
+}
