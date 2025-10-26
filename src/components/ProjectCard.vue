@@ -236,24 +236,61 @@ defineProps<{
 
 @media print {
   .project-card {
-    background: #ffffff;
-    color: #0f172a;
-    box-shadow: none;
-    border: 1px solid #cbd5f5;
-    animation: none;
-    opacity: 1;
-    transform: none;
+    background: rgba(18, 18, 31, 0.7) !important;
+    color: #f8fafc !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 
+      0 25px 60px rgba(15, 23, 42, 0.35),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.03) !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .project-card--highlight {
+    border-color: rgba(99, 102, 241, 0.6) !important;
+    box-shadow:
+      0 32px 80px rgba(67, 56, 202, 0.35),
+      inset 0 0 0 1px rgba(129, 140, 248, 0.18) !important;
+  }
+
+  .project-card__title {
+    color: #f8fafc !important;
+  }
+
+  .project-card__description {
+    color: rgba(226, 232, 240, 0.78) !important;
   }
 
   .project-card__badge {
-    background: #1e293b;
-    color: #ffffff;
+    background: rgba(15, 23, 42, 0.75) !important;
+    color: rgba(226, 232, 240, 0.9) !important;
+    border: 1px solid rgba(148, 163, 184, 0.35) !important;
+  }
+
+  .project-card__tag {
+    background: rgba(79, 70, 229, 0.2) !important;
+    border: 1px solid rgba(165, 180, 252, 0.4) !important;
+    color: #f8fafc !important;
   }
 
   .project-card__link {
-    background: transparent;
-    border-color: #1e293b;
-    color: #1e293b;
+    background: rgba(96, 165, 250, 0.16) !important;
+    border: 1px solid rgba(96, 165, 250, 0.35) !important;
+    color: #e0f2fe !important;
+    text-decoration: none !important;
+  }
+
+  .project-card__media {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .project-card__content {
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 }
 </style>

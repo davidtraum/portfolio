@@ -370,6 +370,11 @@ code {
   transform: translateY(18px);
 }
 
+/* Print Banner - hidden by default */
+.print-banner {
+  display: none;
+}
+
 /* Responsive adjustments */
 @media (max-width: 900px) {
   #app {
@@ -419,17 +424,26 @@ code {
   }
 }
 
+@page {
+  margin: 12mm;
+  size: A4;
+}
+
 @media print {
-  :root {
-    color-scheme: light;
-    background: #ffffff;
-    color: #0f172a;
+  *,
+  *::before,
+  *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
-  body,
+  body {
+    background: #050816 !important;
+  }
+
   body::before {
-    background: #ffffff !important;
-    filter: none !important;
+    opacity: 1 !important;
+    filter: blur(80px) !important;
   }
 
   #app {
@@ -437,56 +451,181 @@ code {
     max-width: none;
   }
 
-  .hero,
+  .page {
+    gap: 2.5rem;
+  }
+
+  /* Print Banner - only visible in print */
+  .print-banner {
+    display: block !important;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.95), rgba(56, 189, 248, 0.85)) !important;
+    border: 2px solid rgba(96, 165, 250, 0.8) !important;
+    border-radius: 1rem !important;
+    padding: 1.5rem 2rem !important;
+    margin-bottom: 2rem !important;
+    text-align: center !important;
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4) !important;
+  }
+
+  .print-banner__content h3 {
+    margin: 0 0 0.5rem 0 !important;
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .print-banner__content p {
+    margin: 0 !important;
+    font-size: 1.1rem !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 500 !important;
+  }
+
+  .print-banner__content strong {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    text-decoration: underline !important;
+  }
+
+  /* Hero section */
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'portrait'
+      'content'
+      'stats';
+    text-align: left;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 2rem;
+  }
+
+  .hero__content {
+    max-width: 100%;
+  }
+
+  .hero__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Hide interactive elements */
+  .hero__actions,
+  .filters,
+  .filters__status,
+  .filter-chip {
+    display: none !important;
+  }
+
+  /* Gallery section */
+  .gallery {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .gallery__header {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    break-after: avoid;
+    page-break-after: avoid;
+    margin-bottom: 1.5rem;
+  }
+
+  .gallery__grid {
+    gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Project cards page break control */
+  .project-card {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    -webkit-region-break-inside: avoid !important;
+    -webkit-column-break-inside: avoid !important;
+    -moz-column-break-inside: avoid !important;
+    margin-bottom: 1rem;
+  }
+
+  /* Ensure first card doesn't break after header */
+  .project-card:first-child {
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
+  /* Footer */
   .page__footer {
-    background: #ffffff;
-    color: #0f172a;
-    border: 1px solid #cbd5f5;
-    box-shadow: none;
-    backdrop-filter: none;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    break-before: auto;
+    page-break-before: auto;
+    margin-top: 2rem;
   }
 
-  .btn,
-  .filter-chip,
-  .contact-card__mail {
-    box-shadow: none;
-    background: #ffffff;
-    color: #0f172a;
-    border: 1px solid #94a3b8;
+  /* Links styling */
+  .project-card__links {
+    gap: 0.4rem;
   }
 
-  .btn--primary {
-    background: #1d4ed8;
-    color: #ffffff;
-    border-color: #1d4ed8;
+  .project-card__link {
+    background: rgba(96, 165, 250, 0.16) !important;
+    border-color: rgba(96, 165, 250, 0.35) !important;
+    color: #e0f2fe !important;
+    padding: 0.35rem 0.6rem !important;
+    text-decoration: none !important;
+    border-radius: 0.5rem !important;
+    display: block !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    max-width: 100% !important;
   }
 
-  .filters__status {
-    border-color: #0f172a;
-    background: #e2e8f0;
-    color: #0f172a;
-  }
-
-  .contact-card {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
-  .contact-card__mail {
-    color: #0f172a;
-  }
-
-  .hero__portrait {
-    border-color: #94a3b8;
-    box-shadow: none;
-    background: #ffffff;
-  }
-
-  .hero__portrait::after {
+  /* Verkürzte URL-Anzeige */
+  .project-card__link::after {
+    content: '';
     display: none;
   }
 
+  /* Alternative: Zeige nur Domain */
+  .project-card__link[href*="github.com"]::after {
+    content: ' (GitHub)';
+    font-size: 0.7rem;
+    font-weight: 400;
+    margin-left: 0.25rem;
+    color: rgba(191, 219, 254, 0.8);
+  }
+
+  .project-card__link[href*="vercel.app"]::after,
+  .project-card__link[href*="netlify.app"]::after,
+  .project-card__link[href*="herokuapp.com"]::after {
+    content: ' (Live Demo)';
+    font-size: 0.7rem;
+    font-weight: 400;
+    margin-left: 0.25rem;
+    color: rgba(191, 219, 254, 0.8);
+  }
+
+  a[href] {
+    color: #bae6fd;
+    text-decoration: underline;
+  }
+
+  .contact-card__mail {
+    background: rgba(59, 130, 246, 0.18) !important;
+    border-color: rgba(96, 165, 250, 0.45) !important;
+    color: #dbeafe !important;
+    padding: 0.45rem 0.85rem !important;
+  }
+
+  /* Remove animations */
   .fade-up-enter-active,
   .fade-up-leave-active {
-    transition: none;
+    transition: none !important;
+  }
+
+  * {
+    animation: none !important;
+    transition: none !important;
   }
 }

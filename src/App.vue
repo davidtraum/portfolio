@@ -1,11 +1,19 @@
 <template>
   <div class="page">
+    <!-- Print-only Banner -->
+    <div class="print-banner">
+      <div class="print-banner__content">
+        <h3>🌐 Interaktives Portfolio online verfügbar</h3>
+        <p><strong>portfolio.traum.me</strong> – Vollständige Funktionen, Live-Demos und aktuelle Projekte</p>
+      </div>
+    </div>
+
     <header class="hero">
       <div class="hero__content">
         <span class="hero__eyebrow">Portfolio - David Traum</span>
         <h1>Software-Projekte mit Fokus auf Klarheit, Wirkung und Flow.</h1>
         <p>
-          Hi, ich bin David, Full-Stack-Entwickler aus Andernach. Ich brenne für moderne Web- und Software-Projekte von der Idee bis zum Deployment.
+          Hi, ich bin David, Full-Stack-Entwickler aus Koblenz. Ich brenne für moderne Web- und Software-Projekte von der Idee bis zum Deployment.
         </p>
 
         <div class="hero__actions">

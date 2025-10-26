@@ -37,17 +37,6 @@
     ]
   },
   {
-    "id": "klimakasse",
-    "title": "Klimakasse",
-    "description": "Interaktiver CO2-Rechner für Veranstaltungen.",
-    "screenshot": "/screenshots/klimakasse.webp",
-    "tags": ["IoT", "Arduino", "3D-Druck", "C++", "Nextion", "Elektrotechnik"],
-    "period": "2022 · IoT",
-    "links": [
-      { "label": "Heise Online", "url": "https://www.heise.de/ratgeber/Interaktive-Klimakasse-mit-ESP8266-bauen-5019009.html", "icon": "external" }
-    ]
-  },
-  {
     "id": "joytrike",
     "title": "Elektromobil",
     "description": "DIY-Elektrofahrzeug aus Holz mit vielen Elektro-Features.",
