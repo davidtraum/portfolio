@@ -8,7 +8,7 @@
       <img
         :src="project.screenshot"
         class="project-card__image"
-        :alt="`Screenshot von ${project.title}`"
+        :alt="t('gallery.screenshot', { title: project.title })"
         loading="lazy"
       />
       <span v-if="project.period" class="project-card__badge">{{ project.period }}</span>
@@ -63,7 +63,10 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import type { Project } from '../types/project'
+
+const { t } = useI18n()
 
 defineProps<{
   project: Project
